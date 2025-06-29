@@ -1,8 +1,12 @@
 
+import { useLanguage } from '@/contexts/LanguageContext';
+
 const Skills = () => {
+  const { t } = useLanguage();
+
   const skillCategories = [
     {
-      title: "Seguridad Ofensiva",
+      title: t('skills.offensive'),
       skills: [
         { name: "Penetration Testing", level: 90 },
         { name: "Vulnerability Assessment", level: 95 },
@@ -11,7 +15,7 @@ const Skills = () => {
       ]
     },
     {
-      title: "Seguridad Defensiva",
+      title: t('skills.defensive'),
       skills: [
         { name: "SOC Operations", level: 92 },
         { name: "Incident Response", level: 88 },
@@ -20,7 +24,7 @@ const Skills = () => {
       ]
     },
     {
-      title: "Herramientas & Tecnologías",
+      title: t('skills.tools'),
       skills: [
         { name: "Kali Linux", level: 95 },
         { name: "Metasploit", level: 88 },
@@ -35,12 +39,11 @@ const Skills = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Habilidades <span className="text-cyber">Técnicas</span>
+            {t('skills.title').split(' ')[0]} <span className="text-cyber">{t('skills.title').split(' ')[1]}</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mb-6"></div>
           <p className="text-white/70 text-lg max-w-2xl mx-auto">
-            Competencias especializadas en ciberseguridad, desde análisis de vulnerabilidades 
-            hasta respuesta a incidentes y operaciones SOC.
+            {t('skills.description')}
           </p>
         </div>
 
@@ -77,7 +80,7 @@ const Skills = () => {
         {/* Certifications Section */}
         <div className="mt-20 text-center">
           <h3 className="text-3xl font-bold text-white mb-8">
-            Certificaciones <span className="text-cyber">Profesionales</span>
+            {t('skills.certTitle').split(' ')[0]} <span className="text-cyber">{t('skills.certTitle').split(' ')[1]}</span>
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[

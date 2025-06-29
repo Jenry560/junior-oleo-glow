@@ -1,8 +1,11 @@
 
 import { Shield, Code, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Hero = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background Effects */}
@@ -35,15 +38,14 @@ const Hero = () => {
             </h2>
             <div className="flex items-center justify-center space-x-4 text-xl md:text-2xl text-primary font-medium">
               <Zap className="w-6 h-6" />
-              <span>Cybersecurity Specialist</span>
+              <span>{t('hero.specialist')}</span>
               <Zap className="w-6 h-6" />
             </div>
           </div>
 
           {/* Description */}
           <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
-            Especialista en ciberseguridad con experiencia en protección de infraestructuras digitales, 
-            análisis de vulnerabilidades y respuesta a incidentes. Protegiendo el futuro digital.
+            {t('hero.description')}
           </p>
 
           {/* CTA Buttons */}
@@ -52,14 +54,14 @@ const Hero = () => {
               size="lg" 
               className="bg-gradient-to-r from-primary to-accent hover:from-primary/80 hover:to-accent/80 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 cyber-glow"
             >
-              Ver Proyectos
+              {t('hero.viewProjects')}
             </Button>
             <Button 
               variant="outline" 
               size="lg"
               className="border-primary/50 text-primary hover:bg-primary/10 font-semibold px-8 py-4 rounded-xl transition-all duration-300"
             >
-              Descargar CV
+              {t('hero.downloadCV')}
             </Button>
           </div>
         </div>

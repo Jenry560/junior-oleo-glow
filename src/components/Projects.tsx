@@ -1,28 +1,31 @@
 
 import { Shield, Code, Eye, Link } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Projects = () => {
+  const { t } = useLanguage();
+
   const projects = [
     {
-      title: "Security Dashboard",
-      description: "Panel de control en tiempo real para monitoreo de amenazas y análisis de seguridad de red.",
+      title: t('projects.dashboard.title'),
+      description: t('projects.dashboard.description'),
       tech: ["React", "Python", "ELK Stack", "Docker"],
       icon: Shield,
       gradient: "from-blue-500 to-purple-600",
       image: "photo-1461749280684-dccba630e2f6"
     },
     {
-      title: "Vulnerability Scanner",
-      description: "Herramienta automatizada para escaneo y detección de vulnerabilidades en aplicaciones web.",
+      title: t('projects.scanner.title'),
+      description: t('projects.scanner.description'),
       tech: ["Python", "Nmap", "OpenVAS", "PostgreSQL"],
       icon: Eye,
       gradient: "from-purple-500 to-pink-600",
       image: "photo-1487058792275-0ad4aaf24ca7"
     },
     {
-      title: "Incident Response Tool",
-      description: "Sistema de gestión y respuesta automatizada a incidentes de seguridad cibernética.",
+      title: t('projects.incident.title'),
+      description: t('projects.incident.description'),
       tech: ["Node.js", "MongoDB", "Redis", "Socket.io"],
       icon: Code,
       gradient: "from-green-500 to-teal-600",
@@ -35,12 +38,11 @@ const Projects = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Proyectos <span className="text-cyber">Destacados</span>
+            {t('projects.title').split(' ')[0]} <span className="text-cyber">{t('projects.title').split(' ')[1]}</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mb-6"></div>
           <p className="text-white/70 text-lg max-w-2xl mx-auto">
-            Soluciones innovadoras en ciberseguridad que demuestran expertise técnico 
-            y enfoque práctico en la protección digital.
+            {t('projects.description')}
           </p>
         </div>
 
@@ -92,7 +94,7 @@ const Projects = () => {
                     className="bg-primary/20 hover:bg-primary/30 text-primary border border-primary/30"
                   >
                     <Link className="w-4 h-4 mr-2" />
-                    Demo
+                    {t('projects.demo')}
                   </Button>
                   <Button 
                     size="sm" 
@@ -100,7 +102,7 @@ const Projects = () => {
                     className="border-white/30 text-white/80 hover:bg-white/10"
                   >
                     <Code className="w-4 h-4 mr-2" />
-                    Código
+                    {t('projects.code')}
                   </Button>
                 </div>
               </div>
@@ -114,7 +116,7 @@ const Projects = () => {
             size="lg"
             className="bg-gradient-to-r from-primary to-accent hover:from-primary/80 hover:to-accent/80 text-white font-semibold px-8 py-4 rounded-xl cyber-glow"
           >
-            Ver Más Proyectos
+            {t('projects.viewMore')}
           </Button>
         </div>
       </div>

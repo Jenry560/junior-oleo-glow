@@ -2,17 +2,20 @@
 import { useState, useEffect } from 'react';
 import { Shield, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
+import LanguageSelector from './LanguageSelector';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const navItems = [
-    { name: 'Inicio', href: '#home' },
-    { name: 'Sobre Mí', href: '#about' },
-    { name: 'Habilidades', href: '#skills' },
-    { name: 'Proyectos', href: '#projects' },
-    { name: 'Contacto', href: '#contact' }
+    { name: t('nav.home'), href: '#home' },
+    { name: t('nav.about'), href: '#about' },
+    { name: t('nav.skills'), href: '#skills' },
+    { name: t('nav.projects'), href: '#projects' },
+    { name: t('nav.contact'), href: '#contact' }
   ];
 
   useEffect(() => {
@@ -55,13 +58,14 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* Language Selector & CTA Button */}
+          <div className="hidden md:flex items-center space-x-4">
+            <LanguageSelector />
             <Button 
               size="sm"
               className="bg-gradient-to-r from-primary to-accent hover:from-primary/80 hover:to-accent/80 text-white font-semibold rounded-lg"
             >
-              Trabajemos Juntos
+              {t('nav.workTogether')}
             </Button>
           </div>
 
@@ -92,12 +96,15 @@ const Navigation = () => {
                   {item.name}
                 </a>
               ))}
-              <Button 
-                size="sm"
-                className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/80 hover:to-accent/80 text-white font-semibold rounded-lg mt-4"
-              >
-                Trabajemos Juntos
-              </Button>
+              <div className="pt-4 space-y-3">
+                <LanguageSelector />
+                <Button 
+                  size="sm"
+                  className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/80 hover:to-accent/80 text-white font-semibold rounded-lg"
+                >
+                  {t('nav.workTogether')}
+                </Button>
+              </div>
             </div>
           </div>
         )}

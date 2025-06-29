@@ -3,8 +3,11 @@ import { Shield, Code, Link, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Contact = () => {
+  const { t } = useLanguage();
+
   const socialLinks = [
     {
       name: "LinkedIn",
@@ -31,56 +34,55 @@ const Contact = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Hablemos de <span className="text-cyber">Seguridad</span>
+            {t('contact.title').split(' ')[0]} <span className="text-cyber">{t('contact.title').split(' ').slice(1).join(' ')}</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mb-6"></div>
           <p className="text-white/70 text-lg max-w-2xl mx-auto">
-            ¿Necesitas fortalecer la seguridad de tu organización? 
-            Estoy aquí para ayudarte a proteger lo que más importa.
+            {t('contact.description')}
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Form */}
           <div className="glow-card p-8 animate-fade-in-up">
-            <h3 className="text-2xl font-bold text-white mb-6">Envía un Mensaje</h3>
+            <h3 className="text-2xl font-bold text-white mb-6">{t('contact.sendMessage')}</h3>
             <form className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-white/80 text-sm font-medium mb-2">
-                    Nombre
+                    {t('contact.name')}
                   </label>
                   <Input 
-                    placeholder="Tu nombre"
+                    placeholder={t('contact.namePlaceholder')}
                     className="bg-white/5 border-white/20 text-white placeholder:text-white/50 focus:border-primary"
                   />
                 </div>
                 <div>
                   <label className="block text-white/80 text-sm font-medium mb-2">
-                    Email
+                    {t('contact.email')}
                   </label>
                   <Input 
                     type="email"
-                    placeholder="tu@email.com"
+                    placeholder={t('contact.emailPlaceholder')}
                     className="bg-white/5 border-white/20 text-white placeholder:text-white/50 focus:border-primary"
                   />
                 </div>
               </div>
               <div>
                 <label className="block text-white/80 text-sm font-medium mb-2">
-                  Asunto
+                  {t('contact.subject')}
                 </label>
                 <Input 
-                  placeholder="¿En qué puedo ayudarte?"
+                  placeholder={t('contact.subjectPlaceholder')}
                   className="bg-white/5 border-white/20 text-white placeholder:text-white/50 focus:border-primary"
                 />
               </div>
               <div>
                 <label className="block text-white/80 text-sm font-medium mb-2">
-                  Mensaje
+                  {t('contact.message')}
                 </label>
                 <Textarea 
-                  placeholder="Cuéntame sobre tu proyecto de seguridad..."
+                  placeholder={t('contact.messagePlaceholder')}
                   rows={5}
                   className="bg-white/5 border-white/20 text-white placeholder:text-white/50 focus:border-primary resize-none"
                 />
@@ -90,7 +92,7 @@ const Contact = () => {
                 size="lg"
                 className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/80 hover:to-accent/80 text-white font-semibold py-4 rounded-xl cyber-glow"
               >
-                Enviar Mensaje
+                {t('contact.send')}
               </Button>
             </form>
           </div>
@@ -104,18 +106,17 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-white">Junior de Oleo</h3>
-                  <p className="text-white/70">Cybersecurity Specialist</p>
+                  <p className="text-white/70">{t('hero.specialist')}</p>
                 </div>
               </div>
               <p className="text-white/80 leading-relaxed">
-                Especializado en crear soluciones de seguridad robustas y escalables. 
-                Siempre disponible para discutir nuevos desafíos y oportunidades.
+                {t('contact.description2')}
               </p>
             </div>
 
             {/* Social Links */}
             <div className="glow-card p-8">
-              <h3 className="text-xl font-bold text-white mb-6">Conecta Conmigo</h3>
+              <h3 className="text-xl font-bold text-white mb-6">{t('contact.connectWithMe')}</h3>
               <div className="space-y-4">
                 {socialLinks.map((link, index) => (
                   <a
@@ -132,22 +133,22 @@ const Contact = () => {
 
             {/* Quick Stats */}
             <div className="glow-card p-8">
-              <h3 className="text-xl font-bold text-white mb-6">Disponibilidad</h3>
+              <h3 className="text-xl font-bold text-white mb-6">{t('contact.availability')}</h3>
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-white/80">Estado</span>
+                  <span className="text-white/80">{t('contact.status')}</span>
                   <span className="text-accent font-semibold flex items-center">
                     <div className="w-2 h-2 bg-accent rounded-full mr-2 animate-pulse"></div>
-                    Disponible
+                    {t('contact.available')}
                   </span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-white/80">Respuesta</span>
-                  <span className="text-primary font-semibold">24 horas</span>
+                  <span className="text-white/80">{t('contact.response')}</span>
+                  <span className="text-primary font-semibold">{t('contact.responseTime')}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-white/80">Ubicación</span>
-                  <span className="text-white/80">Remote/Global</span>
+                  <span className="text-white/80">{t('contact.location')}</span>
+                  <span className="text-white/80">{t('contact.locationValue')}</span>
                 </div>
               </div>
             </div>

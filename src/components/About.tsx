@@ -1,22 +1,25 @@
 
 import { Shield, Eye, Zap } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const About = () => {
+  const { t } = useLanguage();
+
   const highlights = [
     {
       icon: Shield,
-      title: "Seguridad Defensiva",
-      description: "Implementación de sistemas de protección y monitoreo de infraestructuras críticas"
+      title: t('about.defensiveSecurity'),
+      description: t('about.defensiveDesc')
     },
     {
       icon: Eye,
-      title: "Análisis de Amenazas",
-      description: "Identificación y análisis de vulnerabilidades mediante técnicas avanzadas"
+      title: t('about.threatAnalysis'),
+      description: t('about.threatDesc')
     },
     {
       icon: Zap,
-      title: "Respuesta Rápida",
-      description: "Gestión eficiente de incidentes y recuperación ante ataques cibernéticos"
+      title: t('about.quickResponse'),
+      description: t('about.quickDesc')
     }
   ];
 
@@ -28,40 +31,30 @@ const About = () => {
           <div className="space-y-8 animate-fade-in-up">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                Sobre <span className="text-cyber">Mí</span>
+                {t('about.title').split(' ')[0]} <span className="text-cyber">{t('about.title').split(' ')[1]}</span>
               </h2>
               <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></div>
             </div>
 
             <div className="space-y-6 text-white/80 text-lg leading-relaxed">
-              <p>
-                Soy un profesional apasionado por la ciberseguridad con más de 5 años de experiencia 
-                en la protección de activos digitales y la implementación de estrategias de seguridad robustas.
-              </p>
-              <p>
-                Mi experiencia abarca desde auditorías de seguridad hasta la respuesta a incidentes, 
-                siempre manteniéndome actualizado con las últimas amenazas y tecnologías de protección.
-              </p>
-              <p>
-                Especializado en crear soluciones integrales que no solo protegen, sino que también 
-                educan y empoderan a las organizaciones para enfrentar los desafíos del panorama 
-                cibernético actual.
-              </p>
+              <p>{t('about.intro1')}</p>
+              <p>{t('about.intro2')}</p>
+              <p>{t('about.intro3')}</p>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 pt-8">
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary">50+</div>
-                <div className="text-white/60 text-sm">Proyectos</div>
+                <div className="text-white/60 text-sm">{t('about.projects')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-accent">15+</div>
-                <div className="text-white/60 text-sm">Certificaciones</div>
+                <div className="text-white/60 text-sm">{t('about.certifications')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary">5+</div>
-                <div className="text-white/60 text-sm">Años Exp.</div>
+                <div className="text-white/60 text-sm">{t('about.experience')}</div>
               </div>
             </div>
           </div>
